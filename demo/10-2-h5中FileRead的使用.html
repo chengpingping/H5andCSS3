@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="">
+			文件：<input type="file" name="myFile" id="myFile" onchange="getFileContent()" /><br />
+			<input type="submit" />
+		</form>
+		<img />
+		<script>
+			function getFileContent(){
+//				console.log(123)
+				/*创建文件读取对象*/
+				var read=new FileReader();
+				/*读取文件，获取DataURL*/
+				var file=document.querySelector("#myFile").files[0];
+				read.readAsDataURL(file);//没有返回值，但是读取完之后，他会将读取的结果存储在文件读取的对象result中；需要一个参数（blob:binary large object）；文件存储在file表单元素的files属性中，他是一个数组
+				/*读取数据*/
+				/*
+				 * FileReader提供了完整的时间模型，用来捕获读取文件是的状态
+				 * onabort:读取文件中片段时触发
+				 * onerror:读取错误时触发
+				 * onload:文件读取成功时触发
+				 * onloadend:文件读取完成是触发，无论失败还是成功
+				 * onloadstart:开始读取时触发
+				 * onprogress:读取文件的过程中持续触发*/
+				read.onload=function(){
+//					console.log(reader.result);
+					/*展示*/
+					document.querySelector("img").src=read.result;
+				}
+			}
+		</script>
+	</body>
+</html>

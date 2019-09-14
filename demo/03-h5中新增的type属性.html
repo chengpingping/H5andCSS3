@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form id="myform" action="">
+			用户名：<input name="username" type="text" placeholder="请输入用户名" autofocus autocomplete="on" /><br />
+			密码：<input type="password" /><br />
+			邮箱：<input type="email" multiple /><br />
+			电话：<input type="tel" required pattern="^(\+86)?1\d{10}$" /><br />
+			网址：<input type="url" /><br />
+			数量：<input type="number" max="100" min="0" value="1" /><br />
+			输入商品名称：<input type="search" /><br />
+			范围：<input type="range" max="100" min="0" value="0" /><br />
+			颜色：<input type="color" /><br />
+			日期：<input type="date" />时间：<input type="time" /><br />
+			文件：<input type="file" name="photo" multiple /><br />
+			日期时间：<input type="datetime-local" /><br />
+			
+			<input type="submit" />
+		</form>
+		地址:<input name="address" type="text" form="myform" />
+	</body>
+</html>

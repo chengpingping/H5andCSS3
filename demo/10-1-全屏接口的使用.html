@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<img width="200px" src="img/head.jpeg" />
+			<input type="button" id="full" value="全屏" />
+			<input type="button" id="cancelFull" value="退出全屏" />
+			<input type="button" id="isFull" value="是否全屏" />
+		</div>
+		<script>
+			window.onload=function(){
+				var div=document.querySelector("div");
+				document.querySelector("#full").onclick=function(){
+//					div.webkitRequestFullScreen();
+					if(div.requestFullScreen){
+						div.requestFullScreen();
+					}else if(div.webkitRequestFullScreen){
+						div.webkitRequestFullScreen();
+					}else if(div.mozRequestFullScreen){
+						div.mozRequestFullScreen();
+					}else if(div.msRequestFullScreen){
+						div.msRequestFullScreen();
+					}
+				}
+				document.querySelector("#cancelFull").onclick=function(){
+					if(document.cancelScreen){
+						document.cancelScreen();
+					}else if(document.webkitCancelFullScreen){
+						document.webkitCancelFullScreen();
+					}else if(document.mozCancelFullScreen){
+						document.mozCancelFullScreen();
+					}else if(document.msCancelFullScreen){
+						document.msCancelFullScreen();
+					}
+				}
+				document.querySelector("#isFull").onclick=function(){
+					if(document.fullscreenElement||document.webkitFullscreenElement||document.mozFullScreenElement||document.msFullscreenElement){
+						alert(true);
+					}else{
+						alert(false)
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

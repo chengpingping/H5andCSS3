@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.red{
+				color: red;
+			}
+			.green{
+				color: green;
+			}
+			.blue{
+				color: blue;
+			}
+			.underline{
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>前端</li>
+			<li class="blue">java</li>
+			<li>javascript</li>
+			<li>C++</li>
+		</ul>
+		<input type="button" value="添加" id="add" />
+		<input type="button" value="移除" id="remove" />
+		<input type="button" value="切换" id="toggle" />
+		<input type="button" value="判断" id="contain" />
+		<script>
+			window.onload=function(){
+				document.querySelector("#add").onclick=function(){
+					document.querySelector("li").classList.add("red");
+					document.querySelector("li").classList.add("underline");
+				}
+				document.querySelector("#remove").onclick=function(){
+					document.querySelector(".blue").classList.remove("blue");
+				}
+				document.querySelector("#toggle").onclick=function(){
+					document.querySelectorAll("li")[2].classList.toggle("green");
+				}
+				document.querySelector("#contain").onclick=function(){
+					var result=document.querySelectorAll("li")[3].classList.contains("green");
+					console.log(result);
+				}
+/*				var cli=document.getElementsByTagName()[0];
+				console.log(cli);*/
+//				var javali=document.querySelector("li");
+				/*var javali=document.querySelector(".green");
+				console.log(javali);*/
+			}
+		</script>
+	</body>
+</html>

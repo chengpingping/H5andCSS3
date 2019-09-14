@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			header{
+				display: block;
+				width: 100%;
+				height: 100px;
+				background-color: red;
+			}
+			nav{
+				display: block;
+				width: 100%;
+				height: 36px;
+				background-color: green;
+			}
+			main{
+				display: block;
+				width: 100%;
+				height: 500px;
+				background-color: #ccc;
+			}
+			main >article{
+				/*display: block;*/
+				width: 80%;
+				height: 100%;
+				background-color: purple;
+				float: left;
+			}
+			main >aside {
+				/*display: block;*/
+				width: 20%;
+				height: 100%;
+				background-color: pink;
+				float: right;
+			}
+			footer{
+				display: block;
+				width: 100%;
+				height: 80px;
+				background-color: skyblue;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="../js/html5shiv.min.js"></script>
+		<!--<script>
+			document.createElement("header");
+			document.createElement("nav");
+			document.createElement("main");
+			document.createElement("article");
+			document.createElement("aside");
+			document.createElement("footer");
+		</script>-->
+		<!--<div class="header"></div>
+		<div class="nav"></div>
+		<<div class="mainContain">
+			<div class="left"></div>
+			<div class="right"></div>
+		</div>
+		<div class="footer"></div>-->
+		<header>头部</header>
+		<nav>导航</nav>
+		<main>
+			<article>左边</article>
+			<aside>右边</aside>
+		</main>
+		<footer>底部</footer>
+	</body>
+</html>

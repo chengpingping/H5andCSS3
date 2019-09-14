@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			console.log("网络...");
+			window.addEventListener("online",function(){
+				alert("网络连通");
+				console.log("网络连通");
+			})
+			window.addEventListener("offline",function(){
+				console.log("网络断开");
+				alert("网络断开");
+			})
+		</script>
+	</body>
+</html>

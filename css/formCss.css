@@ -1,0 +1,27 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+form{
+	width: 600px;
+	margin: 20px auto;
+}
+form>fieldset{
+	padding: 10PX;/*内间距*/
+}
+form>fieldset>input,form>fieldset>meter{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;/*行高*/
+	margin: 10px 0;
+	border: none;/*重置*/
+	border: 1px solid #ccc;/*重新添加*/
+	border-radius: 4px;/*圆角*/
+	font-size: 15px;/*字体*/
+	padding-left: 50x;
+	/*width=内容+paddin+border*/
+	box-sizing: border-box;/*盒模型*/
+}
+form>fieldset>meter{
+	padding-left: 0px;
+}

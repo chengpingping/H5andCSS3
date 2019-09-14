@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p data-school-name="itcast"></p>
+		
+		<script>
+			window.onload=function(){
+				var p=document.querySelector("p");
+				var value=p.dataset["schoolName"];
+				console.log(value);
+			}
+		</script>
+		
+	</body>
+</html>

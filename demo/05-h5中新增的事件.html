@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="">
+			用户名：<input type="text" name="username" id="username" /><br />
+			电话：<input type="tel" name="userphone" id="userphone" pattern="^(\+86)?1\d{10}$" /><br />
+			<input type="submit" />
+		</form>
+		<progress max="100" value="50"></progress><br />
+		<meter max="100" min="0" high="90" low="10" value="95"></meter><br />
+		<meter max="100" min="0" high="90" low="10" value="45"></meter><br />
+		<meter max="100" min="0" high="90" low="10" value="5"></meter><br />
+		<script>
+			document.getElementById("username").oninput=function(){
+				console.log("oninput:"+this.value);
+			}
+			document.getElementById("userphone").onkeyup=function(){
+				console.log("onkeyup:"+this.value);
+			}
+			document.getElementById("userphone").oninvalid=function(){
+//				alert("请输入正确的手机号码");
+				this.setCustomValidity("请输入正确的手机号码");
+			}
+		</script>
+	</body>
+</html>
