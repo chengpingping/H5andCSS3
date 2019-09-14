@@ -152,7 +152,7 @@ soucer:因为浏览器支持的视频文件格式不一样，所以我们在添�
 1.索引（不直观）
 ```window.onload=function(){
 	document.getElementsByTagName("li")/*获得的是一个数组*/
-}```
+}```；
 2.querySelector(新增)
 query:查询
 selector:选择器
@@ -162,12 +162,12 @@ querySelector(传去选择器的名称)只能获取单个元素，如果获取�
 ```window.onload=function(){
 	var javali=document.querySelector(".green");
 	console.log(javali);
-}```
+}```；
 3.querySelectorAll(新增)
 获取满足条件的所有元素--数组
 ```var allli=document.querySelectorAll("li");
 	console.log(allli);
-```
+```；
 
 ## 操作元素的样式
 新增：classList
