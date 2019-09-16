@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				border-style: solid;
+				border-width: 1px;
+				width: 200px;
+				height: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="demo" class="de"></div>
+		<script>
+			var x=document.getElementById("demo");
+			function getLocation(){
+				/*能力测试*/
+				if(navigator.geolocation){
+					/*1.获取地理信息成功后的回调
+					 2.获取地理信息失败后的回调
+					 3.调整获取当前地理信息的方式*/
+					navigator.geolocation.getCurrentPosition(showPosition,showError,{
+						/*enableHighAccuracy:true;
+						timeout:3000;*/
+					});
+				}else{
+					x.innerHTML="Geolocation in not eupported by this browser.";
+				}
+				/*成功获取定位的回调函数*/
+				/*如果获取成功，会将获取到的地理信息传递给获取成功后的回调*/
+				/*coords:坐标
+				 latitude:纬度
+				 longitude：经度
+				 accuracy:精度
+				 altitude:海拔高度*/
+				function showPosition(position){
+					x.innerHTML="latitude:"+position.coords.latitude+"<br />"+position.coords.longitude;
+				}
+				/*获取地理信息失败的回调函数*/
+				function showError(error){
+					switch(error.code){
+						case error.PERMISSION_DENIED:
+						x.innerHTML="User denied the request for Geolocation.";
+						break;
+						case error.POSITION_UNAVAILABLE:
+						x.innerHTML="Location information is unvailable.";
+						break;
+						case error.TIMEOUT:
+						x.innerHTML="The request to get user location timed out.";
+						break;
+						case error.UNKNOWN_ERROR:
+						x.innerHTML="An unknown error occered.";
+						break;
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

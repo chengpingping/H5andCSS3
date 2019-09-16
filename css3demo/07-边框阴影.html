@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/*div{
+				width: 200px;
+				height: 200px;
+				background-color: orange;
+				margin: 100px auto;
+				box-shadow: 3px 3px 10px 0px yellow inset;
+			}*/
+			.item{
+				width: 110px;
+				height: 120px;
+				margin: 100px 10px auto;
+				float: left;
+				border: 1px solid #000000;
+			}
+			img{
+				width: 100px;
+				height: 100px;
+			}
+			.item:nth-of-type(-n+3){
+				box-shadow: 3px 3px 3px #ccc;
+			}
+			.item:last-of-type{
+				box-shadow: 3px 3px 3px #ccc inset,-3px -3px 3px #ccc inset;
+			}
+		</style>
+	</head>
+	<body>
+		<!--文本阴影 text-shadow:offsetX offsetY blur color-->
+		<!--box-shadow:h(水平) v(垂直) blur spread(扩展) color inset(内阴影)-->
+		<!--<div></div>-->
+		<div class="items">
+			<div class="item"><img src="../img/head.jpeg" /></div>
+			<div class="item"><img src="../img/head.jpeg" /></div>
+			<div class="item"><img src="../img/head.jpeg" /></div>
+			<div class="item"></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="userName" /><br />
+		<input type="button" value="设置数据" id="setData" />
+		<input type="button" value="获取数据" id="getData" />
+		<input type="button" value="删除数据" id="removeData" />
+		<script>
+			/*存储数据*/
+			document.querySelector("#setData").onclick=function(){
+				/*获取用户名*/
+				var name=document.querySelector("#userName").value;
+				/*存储数据*/
+				window.localStorage.setItem("userName",name);
+			}
+			/*获取数据*/
+			document.querySelector("#getData").onclick=function(){
+				/*如果找不到对应的名称key,那它返回空值null*/
+				var name=window.localStorage.getItem("userName");
+				alert(name);
+			}
+			/*删除数据*/
+			document.querySelector("#removeData").onclick=function(){
+				/*如果删除的时候key值写错，不会报错，也不会清除数据*/
+				window.localStorage.removeItem("userName");
+			}
+		</script>
+	</body>
+</html>

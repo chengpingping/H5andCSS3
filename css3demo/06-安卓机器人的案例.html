@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			body{
+				background-color: #ccc;
+			}
+			.content{
+				width: 500px;
+				height: 500px;
+				border: 1px solid red;
+				margin: 50px auto;
+			}
+			.an_head{
+				width: 200px;
+				height: 100px;
+				background-color: darkgreen;
+				margin: 10px auto;
+				border-radius: 100px 100px 0px 0px;
+				position: relative;
+			}
+			/*使用伪元素添加眼睛*/
+			.an_head::before,.an_head::after{
+				/*添加content属性*/
+				content:"";
+				/*转化为块级元素*/
+				position: absolute;
+				bottom: 30px;
+				width: 20px;
+				height: 20px;
+				border-radius: 10px;
+				background-color: white;
+			}
+			.an_head::before{
+				left: 50px;
+			}
+			.an_head::after{
+				right: 50px;
+			}
+			.an_body{
+				width: 200px;
+				height: 200px;
+				background-color: darkgreen;
+				border-radius: 0px 0px 20px 20px;
+				margin: 0 auto;
+				position: relative;
+			}
+			.an_body::before,.an_body::after{
+				content: "";
+				position: absolute;
+				background-color: darkgreen;
+				width: 30px;
+				height: 180px;
+				border-radius: 10px;
+			}
+			.an_body::before{
+				left: -40px;
+			}
+			.an_body::after{
+				right: -40px;
+			}
+			.an_foot{
+				width: 200px;
+				height: 100px;
+				position: relative;
+				margin: 0 auto;
+			}
+			.an_foot::before,.an_foot::after{
+				content: "";
+				position: absolute;
+				background-color: darkgreen;
+				width: 30px;
+				height: 90px;
+				border-radius: 0px 0px 10px 10px;
+			}
+			.an_foot::before{
+				left: 40px;
+			}
+			.an_foot::after{
+				right: 40px;
+			}
+		</style>
+			
+	</head>
+	<body>
+		<!--使用到伪元素和圆角-->
+		<div class="content">
+			<div class="an_head"></div>
+			<div class="an_body"></div>
+			<div class="an_foot"></div>
+		</div>
+	</body>
+</html>

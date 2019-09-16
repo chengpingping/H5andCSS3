@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/css.css" />
+		<link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.css" />
+	</head>
+	<body>
+		<div class="player">
+			<video src="../source/1.MP4"></video>
+			<div class="controls">
+				<a href="javascript:;" class="switch fa fa-play"></a>
+				<a href="javascript:;" class="expand fa fa-expand"></a>
+				<div class="progress">
+					<div class="bar"></div>
+					<div class="loaded"></div>
+					<div class="elapse"></div>
+				</div>
+				<div class="time">
+					<span class="currentTime">00:00:00</span>
+					/
+					<span class="totalTime">00:00:00</span>
+				</div>
+				<script src="../js/jquery-3.4.1.min.js"></script>
+				<script>
+					/*通过jQuery来实现功能*/
+					$(function(){
+						/*1.获取播放器*/
+						var video=$("video")[0];
+						/*实现播放与暂停*/
+						$(".switch").click(function(){
+							if(video.paused){
+								video.play();
+							}else{
+								video.pause();
+							}
+							/*设置标签的样式*/
+							$(this).toggleClass("fa-play fa-pause");
+						});
+						/*全屏显示*/
+						$(".expand").click(function(){
+							/*不同浏览器要添加不同的前缀，所以我们要进行能力测试*/
+							if(video.requestFullScreen){
+								video.requestFullScreen();
+							}else if(video.webkitRequestFullScreen){
+								video.webkitRequestFullScreen();
+							}else if(video.mozRequestFullScreen){
+								video.webkitRequestFullScreen();
+							}else if(video.msRequestFullScreen){
+								video.webkitRequestFullScreen();
+							}
+						});
+						/*播放视频,当视频文件可以播放时触发*/
+						video.oncanplay=function(){
+							setTimeout(function(){
+								/*显示视频*/
+								video.style.display="block";
+								/*获取事件的总时长*/
+								var total=video.duration;
+								/*计算时分秒*/
+								var time=getResult(total);
+								/*展示时间*/
+								$(".totalTime").html(time);
+								/*展示播放时间*/
+							},2000);
+						}
+						/*封装计算时分秒的函数*/
+						function getResult(time){
+							var hour=Math.floor(time/3600);
+							/*补零*/
+							hour=hour<10?"0"+hour:hour;
+							var minute=Math.floor(time%3600/60);
+							minute=minute<10?"0"+minute:minute;
+							var second=Math.floor(time%60); 
+							second=second<10?"0"+second:second;
+							return hour+':'+minute+':'+second;
+								
+						}
+						/*视频播放过程中触发ontimeupdate事件;如果currentTime改变也会触发这个事件*/
+						video.ontimeupdate=function(){
+							/*得到当前时间*/
+							var current=video.currentTime;
+							/*计算当前使劲按*/
+							var time=getResult(current);
+							/*展示时间*/
+							$(".currentTime").html(time);
+							/*设置播放进度条样式*/
+							var percent=current/video.duration*100+"%"
+							$(".elapse").css("width",percent);
+						}
+						/*实现跳播*/
+						$(".bar").click(function(e){
+//							console.log(e);
+							/*获取当前鼠标相对于父元素的一个left值--偏移值*/
+							var offset=e.offsetX;
+							/*计算相对于父元素的总宽度的比例值*/
+							var percent=offset/$(this).width();
+							/*计算这个位置的视频时间*/
+							var current=percent*video.duration;
+							console.log(current);
+							/*设置当前视频的currentTime*/
+							video.currentTime=current;
+						});
+						/*播放完毕后的重置*/
+						video.onended=function(){
+							video.currentTime=0;
+							$(".switch").removeClass("fa-pause").addClass("fa-play");
+						}
+					});
+				</script>
+			</div>
+		</div>
+	</body>
+</html>

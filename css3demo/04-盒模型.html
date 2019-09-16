@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				width: 400px;
+				height: 200px;
+				background-color: #CCCCCC;
+				margin: 100px;
+			}
+			.left{
+				width: 200px;
+				height: 100%;
+				background-color: red;
+				float: left;
+				padding: 10px;
+				box-sizing: border-box;
+				/*margin: 10px;*/
+			}
+			.right{
+				width: 200px;
+				height: 100%;
+				background-color: blue;
+				float: left;
+			}
+			.items{
+				width: 350px;
+				height: 100px;
+				display: inline-block;
+				margin: 0p 10px;
+				overflow: hidden;
+			}
+			img{
+				width: 100px;
+				height: 100px;
+				float: left;
+				border: 1px solid black;
+				box-sizing: border-box;
+			}
+			img:hover{
+				border: 5px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="left">H:Hue(色调 色相)，0/360表示红色，120表示绿色，240表示蓝色；取值：0-360过度为红橙黄绿青蓝紫。</div>
+			<div class="right"></div>
+		</div>
+		<div class="items">
+			<div class="item"><img src="../img/head.jpeg" /></div>
+			<div class="item"><img src="../img/head.jpeg" /></div>
+			<div class="item"><img src="../img/head.jpeg" /></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				float: left;
+				width: 100px;
+				height: 100px;
+				margin: 10px;
+				border-style: solid;
+				border-width: 1px;
+			}
+			.div1{
+				border-color: red;
+			}
+			.div2{
+				border-color: blue;
+			}
+			.div3{
+				border-color: green;
+			}
+			p{
+				font-size: 10px;
+				background: red;
+				margin: 0px;
+				margin-top: 2px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1" id="div1">
+			<p id="pe1" draggable="true">试着把我拖过去</p>
+			<p id="pe2" draggable="true">试着把我拖过去</p>
+		</div>
+		<div class="div2" id="div2"></div>
+		<div class="div3" id="div3"></div>
+		<script>
+/*			var p=document.querySelector("#pe");
+			p.ondragstart=function(){
+				console.log("ondrastart");
+			}
+			p.ondragend=function(){
+				console.log("ondragend");
+			}
+			p.ondragleave=function(){
+				console.log("拖拽元素ondragleave");
+			}
+			p.ondrag=function(){
+//				console.log("ondrag");
+			}*/
+			/*var div2=document.querySelector("#div2");
+			div2.ondragenter=function(){
+				console.log("ondragenter");
+			}
+			div2.ondragover=function(e){
+//				console.log("ondragover");
+				e.preventDefault();
+			}
+			div2.ondrop=function(){
+//				console.log("ondrop");
+				div2.appendChild(p);
+			}
+			div2.ondragleave=function(){
+				console.log("目标元素ondragleave");
+			}*/
+			/*div1为目标元素*/
+			var div1=document.querySelector("#div1");
+			/*div1.ondragover=function(e){
+//				console.log("ondragover");
+				e.preventDefault();
+			}
+			div1.ondrop=function(){
+//				console.log("ondrop");
+				div1.appendChild(p);
+			}*/
+			var obj=null;
+			document.ondragstart=function(e){
+//				console.log(e.target);
+//				obj=e.target;
+				e.dataTransfer.setData("text/html",e.target.id)
+				e.target.style.opacity=0.5;
+				e.target.parentNode.style.borderWidth="5px";
+			}
+			document.ondragleave=function(e){
+				e.target.parentNode.style.borderWidth="1px";
+			}
+			document.ondragend=function(e){
+//				console.log("end")
+				e.target.style.opacity=1;
+				e.target.parentNode.style.borderWidth="1px";
+			}
+			document.ondragenter=function(e){
+//				e.target.style.borderWidth="5px";
+				console.log(e.target);
+			}
+			document.ondragover=function(e){
+				e.preventDefault();
+			}
+			document.ondrop=function(e){
+//				e.target.appendChild(obj)
+				var id=e.dataTransfer.getData("text/html");
+//				console.log(id);
+				e.target.appendChild(document.getElementById(id));
+			}
+		</script>
+	</body>
+</html>
