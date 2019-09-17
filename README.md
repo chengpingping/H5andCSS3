@@ -224,7 +224,7 @@ soucer:因为浏览器支持的视频文件格式不一样，所以我们在添�
 
 # h5中的DOM操作
 
-##获取元素的方法
+## 获取元素的方法
 
 1.索引（不直观）
 
@@ -297,6 +297,7 @@ contains:判断元素是否包含指定名称的样式，返回true/false
 	}
 
 5.获取样式
+
 获取元素添加的样式
 
 	document.querySelector("li").classList.item(0);
@@ -375,7 +376,7 @@ contains:判断元素是否包含指定名称的样式，返回true/false
 
 	也只能只能使用document判断
 
-**比如：**添加三个按钮的点击事件
+**比如**添加三个按钮的点击事件
 
 	window.onload=function(){
 		var div=document.querySelector("div");
@@ -533,7 +534,9 @@ API:navigator.geolocation.getCurrentPosition(success,error,option);
 option：可以设置获取数据的方式,enableHighAccuracy:true/false(是否使用高精度)，timeout:设置超时时间（单位ms），maximumAge:可以设置浏览器重新获取地理信息的时间间隔（单位ms）；
 
 要使用三方接口来获取地理信息：百度地图，高德地图
+
 **百度地图**
+
 	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=百度地图密钥"></script>
 	<script type="text/javascript">
 	var map = new BMap.Map('allmap');
@@ -545,7 +548,7 @@ option：可以设置获取数据的方式,enableHighAccuracy:true/false(是否�
 	var stCtrl = new BMap.PanoramaControl(); //构造全景控件
 	stCtrl.setOffset(new BMap.Size(20, 20));
 	map.addControl(stCtrl);//添加全景控件
-</script>
+	</script>
 
 获取位置的方式：
 
@@ -659,7 +662,7 @@ onended视频播放结束时触发
 
 ontimeupdate时间改变
 
-**注意：直接从浏览器中打开页面可能会不支持跳播，直接打开网页源文件就可以实现跳播**
+**注意：直接从编辑器中打开页面可能会不支持跳播，直接打开网页源文件就可以实现跳播**
 
 ***
 
@@ -703,7 +706,7 @@ E[attr$=value]:查找拥有attr属性的E标签并且attr的属性值以value结
 
 ## 伪类选择器
 
-**之前：**a:hover a:link a:active a:visited
+**之前**a:hover a:link a:active a:visited
 
 ***结构伪类***
 
@@ -748,11 +751,11 @@ E:target:可以为锚点的目标元素添加元素，当目标元素被触发�
 
 ## 伪元素选择器
 
-**重点:**E::first E::after
+**重点**E::first E::after
 
-**特点：**他的功能完全等价于一个dom元素；他不会在dom树中生成；
+**特点**他的功能完全等价于一个dom元素；他不会在dom树中生成；
 
-**注意：**必须添加content元素，否则后期不可见；默认是行级元素，要想设置宽高必须设置为块级元素display:block position float
+**注意**必须添加content元素，否则后期不可见；默认是行级元素，要想设置宽高必须设置为块级元素display:block position float
 
 **其他**
 
@@ -816,11 +819,12 @@ A:Alpha(透明度)，取值：0-1，0代表完全透明，1代表完全不透明
 
 	opacity:针对整个盒子设置透明度，子盒子及内容会继承父盒子的透明度
 	transparent:不可调节透明度，始终是完全透明
-	使用rgba来控制颜色，相对于opacity，不具有继承性。
+	使用rgba来控制颜色透明度，相对于opacity，不具有继承性。
 
 # 文本阴影
 
 text-shadow:none|<length>none|[<shadow>,]\*<shadow>或none|<color>[,<color>]\*
+
 [颜色(color) x轴(X Offset) y轴(Y Offset) 模糊半径(Blur)],[颜色(color) x轴(X Offset) y轴(Y Offset) 模糊半径(Blur)]……
 
 lenth:长度值，同时确定阴影的角度和距离
@@ -837,7 +841,7 @@ color:指定阴影的颜色
 
 默认情况下，css设置盒子宽度只是内容的宽度，而非盒子的宽度，高度同样；所以盒子的宽度=padding+border+width，所以很容易出现问题；
 
-css3中通过box sizing来指定盒模型
+css3中通过box-sizing来指定盒模型
 
 	content-box:设置的width是内容的属性值
 	border-box:设置的width是盒子最终的宽度
@@ -860,7 +864,7 @@ css3中通过box sizing来指定盒模型
 
 如果我们要画一个椭圆就要使用```border-radius: 100px/50px```;
 
-**/是用来设置当前不同方向的半径 水平/垂直方向**
+**/是用来设置当前不同方向的半径（水平/垂直方向）**
 
 添加某个圆角：
 
