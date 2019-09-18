@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				margin-top: 10px;
+				margin-left: 200px;
+				transition: transform .5s;
+			}
+			div:first-of-type:active{
+				/*transform:translate(0px,500px);*/
+				/*background-color: blue;*/
+				transform:translateY(500px);
+			}
+			div:nth-of-type(2):active{
+				transform: scale(2);
+			}
+			div:nth-of-type(3):active{
+				background-color: purple;
+				transform-origin: top left;
+				/*transform: rotate(30deg);*/
+				transform: rotate(30deg) translateY(500px);
+			}
+			div:nth-of-type(4):active{
+				transform: skew(30deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+	</body>
+</html>

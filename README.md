@@ -706,7 +706,11 @@ E[attr$=value]:查找拥有attr属性的E标签并且attr的属性值以value结
 
 ## 伪类选择器
 
-**之前**a:hover a:link a:active a:visited
+**之前**
+	a:hovers鼠标移动到元素之上
+	a:link未访问过
+	a:active鼠标点击了元素
+	a:visited已访问过
 
 ***结构伪类***
 
@@ -887,22 +891,234 @@ css3中通过box-sizing来指定盒模型
 
 # c3中的渐进实现
 
-线性渐变
+渐变不是一个单一色，他产生的是一个图像，所以使用background来添加；
 
-径向渐变
+## 线性渐变
+
+1.linear-gradient:线性渐变指沿着某条直线朝一个方向产生渐变效果
+
+**语法**
+
+	linear-gradient([<point>||<angle>,]?<stop>[,<stop>]*)
+
+**取值**
+
+point:
+
+	to-left:从右到左渐变
+	to-right：从左到右渐变
+	to-top：从下到上渐变
+	to-bottom：从上到下渐变
+
+angle:角度
+
+	0deg:向上渐变
+	90deg:向右渐变
+	180deg:向下渐变（默认值）
+	270deg:向左渐变
+
+stop:色标
+
+	第一个是起点颜色
+	第二个是终点颜色
+
+## 径向渐变
+
+radial-gradient:从一个点向四周产生渐变效果；
+
+**语法**
+
+	radial-gradient([<shap>||<size>][at <position>]?,[at <position>,]?<color-stop>[,<color-stop>]+)
+
+**取值**
+
+shap:形状
+
+	circle:产生一个正圆
+	ellipse:适配当前形状
+
+at position:位置
+
+	默认在正中心，可以赋值坐标也可以赋值关键字（left right top bottom）
+
+size:大小
+
+	closest-side:最近的边
+	farthest-side:最远的边
+	closest-corner:最近的角
+	farthest-corner:最远的角(默认)
+
+color-stop
+
+	第一个是起点颜色
+	第二个是终点颜色
+
+## 重复渐变
+
+**语法**
+
+	repeating-radial-gradient(<shap> position,color stop,color stop)
+	repeating-linear-gradient(point,color stop,color stop)
 
 # c3中的background新增属性
 
+**之前**
 
+1.颜色：
+	background-color:color;
+
+2.图片：
+
+	background-image:url(".../...");
+
+如果图片大于容器，那么默认从容器左上角开始放置；如果图片小于容器，那么图片就默认平铺；
+
+3.设置背景平铺
+
+background-repeat
+
+	no-repeat：不平铺
+	round:将图片缩放平铺
+	space：不会缩放平铺，会在图片间生成相同的间距
+
+4.设置在滚动容器中的背景行为：跟随滚动、固定
+
+background-attachment
+
+	fixed:背景图的位置固定不变
+	scroll:滚动容器的时候背景跟着一起滚动
+	local:背景图片会跟随内容一起改变
+
+**新增**
+
+background-size：
+
+语法：
+	background-size:auto(原始图片大小)||number(数值)||percentage(百分比)||cover(放大铺满)||contain(缩小铺满)
+	length:使用之前先确定宽高比
+	percentage:设置百分比是参照父容器可放置内容的50%
+	contain：按比例调整大小，使宽高自动适应背景区，可能会有空白区域；图片大于容器，将图片缩小；当图片小于容器，将图片放大；
+	cover:与contain相反,背景图片会按比例缩放，适应整个背景区域，图片内容可能会溢出；
+
+background-position:
+
+	center:图片居中显示
+
+**增大响应区**
+
+background-origin:设置背景的原点
+
+	border-box从border的位置开始填充背景，会与border重叠
+	padding-box从padding开始填充背景，会与padding重叠
+	content-box从内容的位置开始填充背景
+
+background-clip:设置内容的裁切，控制的是显示
+
+	border-box显示border及以内的内容
+	padding-box显示padding及以内的内容
+	content-box显示content及以内的内容
 
 # c3中的图片边框基本用法
 
+	border-image-source: url(../img/head.jpeg);/*设置边框图片*/
+	border-image-slice: 27 fill;/*设置四个方向上的裁切距离*/
+	fill:做内容填充
+	border-image-width:边框图片宽度，如果没有设置，那么边框的大小就是元素的大小
+	border-image-outset:扩展边框
+	border-image-repeat:repeat直接平铺,round缩放平铺,stretch拉伸
 
+**缩写**
+
+border-image:source slice/width/outset repeat;
+
+**细节**
+
+1.边框图片的本质是背景，不会影响元素的内容；
+
+2.内容只会被容器的border和padding影响。
+
+**建议**增加padding值或者border值
+
+
+颜色会被图片覆盖
 
 # c3中的transition属性
 
 过渡效果
 
+**之前**
+
+	active：单击响应效果
+
+**现在**
+
+	transition：过渡
+	transition-property:添加过渡效果样式属性名称
+	transition-duration:过渡效果耗时
+	transition-timing-function:设置时间函数--控制运动的速度，linear匀速，ease先慢后快
+	transition-delay:过渡效果的延迟
+
+过渡效果执行完毕会默认还原到原始状态
+
+**简写**
+
+	transition:属性名称    过渡时间    时间函数    延迟
+
+**为多个样式添加过渡效果**
+
+	transition:属性名称    过渡时间    时间函数    延迟，属性名称    过渡时间    时间函数    延迟，……
+	transition:all(所有样式) 过渡时间    时间函数    延迟(效率较低)
+	steps(4):步长值，可以让过渡效果分几个步骤
+
+过渡效果非常严格，只能从某个数值过渡到一个具体的数值
+
 # c3中的transform属性
 
-2d变换效果
+2d、3d变换效果
+
+## 2D转换
+
+通过css transform属性可以实现移动、缩放、旋转、斜切
+
+	transform-origin:设置旋转的轴心，left top bottom center
+
+**移动**
+
+translate()：可以把元素从原来的位置移动，参照元素左上角原点;执行完毕后会恢复到原始状态。
+
+语法：
+
+	translate(tx)|translate(tx,ty)
+	translateX(tx)|translateY(ty)
+
+**缩放**
+
+scale():让元素根据几何中心进行缩放
+
+语法：
+
+	scale(sx|sy)|scale(sx,sy)
+	scaleX(sx)|scaleY(sy)
+
+**旋转**
+
+rotate():是元素根据在指定的角度进行二维的旋转，接受一个角度值，顺时针旋转为正值，逆时针旋转为负值；
+
+语法：
+
+	rotate(0)
+
+**斜切**
+
+skew():能够让元素倾斜展示。
+
+语法：
+
+	skew(ax)|skew(ax,ay)
+	skewX(ax)skew(aY)
+
+[例1：旋转轴心](./css3demo/15-旋转轴心的案例.html)
+[例2：添加多个transfrom](./css3demo/16-添加多个transform属性.html)
+[例3：实现居中](./css3demo/17.实现任意元素居中.html)
+
+## 3D转换
