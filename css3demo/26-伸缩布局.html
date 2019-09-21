@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.box{
+				/*width: 1000px;*/
+				width: 900px;
+				/*height: 200px;*/
+				height: 600px;
+				border: 1px solid red;
+				box-sizing: border-box;
+				background-color: #ccc;
+				/*设置父容器为flex*/
+				display: flex;
+				/*设置子元素排列方式,
+				 * flex-start（默认）让子元素从父容器的起始位置开始排列，
+				 * flex-end子元素从父元素的结束位置开始排列，
+				 * center让子元素从父元素的中间位置开始放，
+				 * space-between子元素左右对齐父元素的开始和结束，中间平分页，产生相同的间距
+				 * space-round将多余的空间平均的分布在子元素的两边*/
+				/*justify-content: center;*/
+				/*justify-content: space-between;*/
+				justify-content: space-around;
+				/*flex-flow:是flex-wrap和flex-direction的综合，
+				 flex-wrap:控制子元素是否跨行显示，默认不换行，nowrap不换行则收缩，wrap换行不收缩，wrap-reverse翻转
+				 flex-direction:子元素排列的方向（主轴方向），row(默认)水平，column垂直，row-reverse水平从右到左排列，column垂直从上到下排列
+				 */
+				/*flex-flow: wrap row;*/ 
+				/*flex:是flex-grow,flex-shrink,flex-basis的简写，默认为0 1 auto
+				 flex-grow:扩展子元素的宽度(写在子元素里面)，默认为零，子元素不会去占用剩余空间
+				 flex-shrink:定义收缩的比例，通过设置的值俩计算收缩空间，默认值是1，子元素会收缩，0表示不收缩				 
+				 flex-basis:
+				 flex[number]
+				 */
+			}
+			.first{
+				width: 200px;
+				height: 200px;
+				/*height: 100%;*/
+				background-color: red;
+			}
+			.second{
+				width: 200px;
+				height: 200px;
+				/*height: 100%;*/
+				background-color: green;
+			}
+			.third{
+				width: 200px;
+				height: 200px;
+				/*height: 100%;*/
+				background-color: blue;
+			}
+			.fourth{
+				width: 200px;
+				height: 200px;
+				/*height: 100%;*/
+				background-color: pink;
+			}
+			.fifth{
+				width: 200px;
+				height: 200px;
+				/*height: 100%;*/
+				background-color: purple;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="first"></div>
+			<div class="second"></div>
+			<div class="third"></div>
+			<div class="fourth"></div>
+			<div class="fifth"></div>
+		</div>
+	</body>
+</html>

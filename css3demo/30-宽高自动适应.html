@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.layout{
+				width: 500px;
+				height: 600px;
+				background-color: #ccc;
+				margin: 10px auto;
+				/*设置父容器为伸缩盒子*/
+				display: flex;
+				/*默认主轴为row，我们要把主轴切换为column*/
+				flex-direction: column;
+			}
+			header{
+				width: 100%;
+				height: 100px;
+				background-color: red;
+			}
+			main{
+				width: 100%;
+				background-color: purple;
+				/*让当前伸缩项占据父容器的剩余空间*/
+				flex: 1;
+				/*让main变成伸缩盒子*/
+				display: flex;
+			}
+			article{
+				flex: 1;
+				background-color: green;
+			}
+			aside{
+				flex: 3;
+				background-color: yellow;
+			}
+			footer{
+				width: 100%;
+				height: 80px;
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="layout">
+			<header></header>
+			<main>
+				<article></article>
+				<aside></aside>
+			</main>
+			<footer></footer>
+		</div>
+	</body>
+</html>

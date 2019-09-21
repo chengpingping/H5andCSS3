@@ -5,33 +5,25 @@
 		<title></title>
 		<style>
 			*{
-				padding: 0;
 				margin: 0;
+				padding: 0;
 			}
 			div{
 				width: 100px;
 				height: 100px;
 				background-color: red;
-				margin-top: 10px;
 				margin-left: 200px;
+				margin-top: 10px;
 				transition: transform .5s;
 			}
 			div:first-of-type:active{
-				/*transform:translate(0px,500px);*/
-				/*background-color: blue;*/
-				transform:translateY(500px);
+				transform:translate3d(0px,0px,400px);
 			}
 			div:nth-of-type(2):active{
-				transform: scale(2);
+				transform:scale3d(2,0.5,1);
 			}
 			div:nth-of-type(3):active{
-				background-color: purple;
-				transform-origin: top left;
-				transform: rotate(30deg);
-				/*transform: rotate(30deg) translateY(500px);*/
-			}
-			div:nth-of-type(4):active{
-				transform: skew(30deg);
+				transform: rotate3d(1,1,0,330deg);
 			}
 		</style>
 	</head>

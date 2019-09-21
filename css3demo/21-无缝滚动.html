@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			div{
+				width: 602px;
+				height: 86px;
+				margin: 100px auto;
+				background-color: #ddd;
+				overflow: hidden;
+			}
+			div > ul{
+				width: 200%;
+				list-style: none;
+				animation-name: move;
+				animation-duration: 10s;
+				animation-iteration-count: infinite;
+				animation-timing-function: linear;
+			}
+			div > ul > li{
+				width: 86px;
+				height: auto;
+				float: left;
+			}
+			div > ul > li > img{
+				width: 100%;
+			}
+			div:hover>ul{
+				cursor: pointer;
+				animation-play-state: paused;
+			}
+			@keyframes move{
+				from{
+					transform: translateX(0);
+				}
+				to{
+					transform: translateX(-602px);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<ul>
+				<li><img src="../img/head.jpeg" /></li>
+				<li><img src="../img/head.jpeg" /></li>
+				<li><img src="../img/head.jpeg" /></li>
+				<li><img src="../img/head.jpeg" /></li>
+				<li><img src="../img/head.jpeg" /></li>
+				<li><img src="../img/head.jpeg" /></li>
+				<li><img src="../img/head.jpeg" /></li>
+				<li><img src="../img/head.jpeg" /></li>
+				<li><img src="../img/head.jpeg" /></li>
+				<li><img src="../img/head.jpeg" /></li>
+				<li><img src="../img/head.jpeg" /></li>
+				<li><img src="../img/head.jpeg" /></li>
+				<li><img src="../img/head.jpeg" /></li>
+				<li><img src="../img/head.jpeg" /></li>
+			</ul>
+		</div>
+	</body>
+</html>
