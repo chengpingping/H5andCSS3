@@ -258,47 +258,47 @@ querySelector(传去选择器的名称)只能获取单个元素，如果获取�
 
 新增：classList
 
-1.添加
+**1.添加**
 
-add:一次只能添加一个样式
+add:一次只能添加一个样式（类名）
 
 	document.querySelector("#add").onclick=function(){
 		document.querySelector("li").classList.add("red")
 	}
 
-***添加多个：需要在写一次添加代码***
+（添加多个：需要再写一次添加代码）
 
 **之前**
 
 	document.querySelector("li").className="underline";//会将之前的样式去掉，但是可以使用+=
 
-2.移除
+**2.移除**
 
-remove:为元素移除指定名称的样式，一次也只能移除一个;只移除样式，不移除属性。
+remove:为元素移除指定名称（类名）的样式，一次也只能移除一个;只移除样式，不移除属性。
 
 	document.querySelector("#remove").onclick=function(){
 		document.querySelector(".blue").classList.remove("blue");
 	}
 
-3.改变
+**3.改变**
 
-toggle：切换元素样式，如果元素之前没有指定名称的样式则添加；否则，移除；
+toggle：切换元素样式（类名），如果元素之前没有指定名称的样式则添加；否则，移除；
 
 	document.querySelector("#toggle").onclick=function(){
 		document.querySelector(".green").classList.toggle("green");
 	}
 
-4.判断
+**4.判断**
 
-contains:判断元素是否包含指定名称的样式，返回true/false
+contains:判断元素是否包含指定名称的样式（类名），返回true/false
 
 	document.querySelector("#contain").onclick=function(){
 		document.querySelectorAll("li")[3].classList.contains("green");
 	}
 
-5.获取样式
+**5.获取样式**
 
-获取元素添加的样式
+获取元素添加的样式（类名）
 
 	document.querySelector("li").classList.item(0);
 
@@ -621,6 +621,7 @@ manifest="应用程序缓存清单文件的路径（建议文件的扩展名是a
 2.创建缓存清单文件
 
 manifest文件：
+
 	1.CACHE MANIFEST--表示这是一个manife；
 	2.CACHE--在此标题下列出文件在首次加载后进行缓存的内容清单；
 	3.NETWORK--在此标题下列出文件需要与服务器的连接而不会被缓存；
@@ -1097,7 +1098,7 @@ transition属性
 
 **例子**
 
-[手风琴菜单](./css3demo/手风琴菜单.html)
+[手风琴菜单](./css3demo/13-手风琴菜单.html)
 
 # c3中的2d、3d变换效果
 
@@ -1423,3 +1424,120 @@ tips:JQuery全屏滚动插件fullPage.js [参考](https://blog.csdn.net/qq_42865
 ***
 ***结束***
 ***
+
+**css初始化代码**
+
+	@charset "utf-8";
+	/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+	html{
+	    color: #000;
+	    background: #fff;
+	    -webkit-text-size-adjust: 100%;
+	    -ms-text-size-adjust: 100%;
+	    font-size: 100%;
+	}
+	/* IE6对positon:fixed的单独处理修正IE6滚动抖动的bug */
+	*html,*html body{
+	    background-image:url(about:blank);/*修正IE6滚动抖动的bug*/
+	    background-attachment: fixed;/*根据自己实际，非必需*/
+	}
+	/* 内外边距通常让各个浏览器样式的表现位置不同 */
+	body,div,dl,dt,dd,ul,li,pre,form,fieldset,select,input,textarea,button,p,blockquote,th,td,img,iframe{
+	    margin: 0;
+	    padding: 0;
+	}
+	body{
+	    width: 100%;
+	}
+	/* 要注意表单元素并不继承父级 font 的问题 */
+	body,button,input,select,textarea{
+	    font: 12px/1.5 "微软雅黑","Microsoft YaHei","\5b8b\4f53","Tahoma","Arial";
+	    color: #333;
+	    outline: none;
+	}
+	input,select,textarea{
+	    font-size: 100%;
+	}
+	/* 重置button边框 */
+	button{
+	    border: none;
+	}
+	/* 去掉各Table cell 的边距并让其边重合 */
+	table{
+	    border-collapse: collapse;
+	    border-spacing: 0;
+	}
+	/* IE bug fixed: th 不继承 text-align*/
+	th{
+	    text-align: inherit;
+	}
+	/* 对齐是排版最重要的因素, 别让什么都居中 */
+	caption,th{
+	    text-align: left;
+	}
+	/* 去除默认边框 */
+	fieldset,img{
+	    border: none;
+	    outline: none;
+	    -moz-outline:none;
+	}
+	/* ie6 7 8(q) bug 显示为行内表现 */
+	iframe{
+	    display: block;
+	}
+	/* 去掉列表前的标识, li 会继承 */
+	ol,ul,li{
+	    list-style: none;
+	}
+	/* 来自yahoo, 让标题都自定义, 适应多个系统应用 */
+	h1,h2,h3,h4,h5,h6{
+	    font-size: 100%;
+	    font-weight: 500;
+	    margin: 0;
+	    padding: 0;
+	}
+	/* 让链接默认不显示下划线，在hover状态下显示下划线 */
+	a{
+	    color: #333;
+	    cursor: pointer;
+	    outline: none;
+	    text-decoration: none;
+	    blr:expression(this.onFocus=this.blur());
+	}
+	a:hover{
+	    text-decoration: underline;
+	}
+	/* 清理浮动 */
+	.clearfix:before,.clearfix:after{
+	    display: block;
+	    content: " ";
+	    clear: both;
+	}
+	.clearfix{
+	    zoom: 1; /* for ie67*/
+	}
+	/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+	article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{
+	    display: block;
+	}
+	/* HTML5 媒体文件跟 img 保持一致 */
+	audio,canvas,video{
+	    display: inline-block;
+	    *display: inline;
+	    *zoom: 1;
+	}
+	address,caption,cite,code,dfn,em,th{
+	    font-style: normal;
+	    font-weight: normal;
+	}
+	/*解决盒模型问题css3属性也可用来统一FORM元素风格*/
+	.box-sizing{
+	    -moz-box-sizing: border-box;
+	    -webkit-box-sizing: border-box;
+	    -o-box-sizing: border-box;
+	    -ms-box-sizing: border-box;
+	    box-sizing: border-box;
+	}
+	</style>
+
+[参考](https://blog.csdn.net/qq_24147051/article/details/85245407)
